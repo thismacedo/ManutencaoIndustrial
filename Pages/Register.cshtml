@@ -1,0 +1,50 @@
+@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Cadastro de Usuário";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center">Cadastro de Usuário</h2>
+                <form method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="NovoUsuario.Nome" class="form-label">Nome</label>
+                        <input asp-for="NovoUsuario.Nome" class="form-control" />
+                        <span asp-validation-for="NovoUsuario.Nome" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="NovoUsuario.Email" class="form-label">Email</label>
+                        <input asp-for="NovoUsuario.Email" class="form-control" />
+                        <span asp-validation-for="NovoUsuario.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="NovoUsuario.Senha" class="form-label">Senha</label>
+                        <input asp-for="NovoUsuario.Senha" type="password" class="form-control" />
+                        <span asp-validation-for="NovoUsuario.Senha" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="NovoUsuario.Tipo" class="form-label">Tipo</label>
+                        <select asp-for="NovoUsuario.Tipo" class="form-select">
+                            <option value="Operador">Operador</option>
+                            <option value="Admin">Administrador</option>
+                        </select>
+                        <span asp-validation-for="NovoUsuario.Tipo" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <a asp-page="/Index" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

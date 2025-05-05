@@ -1,0 +1,35 @@
+@page
+@model ManutencaoIndustrial.Pages.Chamados.DeleteModel
+@{
+    ViewData["Title"] = "Excluir Chamado";
+}
+
+<h1>Excluir Chamado</h1>
+<hr />
+
+<h4>Você tem certeza que deseja excluir este chamado?</h4>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Máquina</dt>
+        <dd class="col-sm-10">@Model.Chamado.Maquina?.Nome</dd>
+
+        <dt class="col-sm-2">Tipo</dt>
+        <dd class="col-sm-10">@Model.Chamado.Tipo</dd>
+
+        <dt class="col-sm-2">Prioridade</dt>
+        <dd class="col-sm-10">@Model.Chamado.Prioridade</dd>
+
+        <dt class="col-sm-2">Descrição</dt>
+        <dd class="col-sm-10">@Model.Chamado.Descricao</dd>
+
+        <dt class="col-sm-2">Status</dt>
+        <dd class="col-sm-10">@Model.Chamado.Status</dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Chamado.Id" />
+        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+        <a asp-page="./Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

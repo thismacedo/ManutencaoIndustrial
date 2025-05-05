@@ -1,0 +1,65 @@
+@page
+@model ManutencaoIndustrial.Pages.Chamados.EditModel
+@{
+    ViewData["Title"] = "Editar Chamado";
+}
+
+<h1>Editar Chamado</h1>
+<hr />
+
+<!-- Exibe erros gerais do modelo -->
+<div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+<form method="post">
+    <input type="hidden" asp-for="Chamado.Id" />
+
+    <div class="mb-3">
+        <label asp-for="Chamado.MaquinaId" class="form-label"></label>
+        <select asp-for="Chamado.MaquinaId" asp-items="Model.Maquinas" class="form-select" disabled>
+            <option value="">Selecione uma máquina</option>
+        </select>
+        <span asp-validation-for="Chamado.MaquinaId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Chamado.Tipo" class="form-label"></label>
+        <select asp-for="Chamado.Tipo" class="form-select" disabled>
+            <option>Corretiva</option>
+            <option>Preventiva</option>
+        </select>
+        <span asp-validation-for="Chamado.Tipo" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Chamado.Prioridade" class="form-label"></label>
+        <select asp-for="Chamado.Prioridade" class="form-select">
+            <option>Alta</option>
+            <option>Média</option>
+            <option>Baixa</option>
+        </select>
+        <span asp-validation-for="Chamado.Prioridade" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Chamado.Descricao" class="form-label"></label>
+        <textarea asp-for="Chamado.Descricao" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="Chamado.Descricao" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Chamado.Status" class="form-label"></label>
+        <select asp-for="Chamado.Status" class="form-select">
+            <option>Pendente</option>
+            <option>Em Atendimento</option>
+            <option>Concluído</option>
+        </select>
+        <span asp-validation-for="Chamado.Status" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,38 @@
+@page "{id:int}"
+@model ManutencaoIndustrial.Pages.Chamados.DetailsModel
+@* @attribute [Authorize] *@
+
+<h2>Detalhes do Chamado</h2>
+
+<div class="card p-3 shadow-sm">
+    <dl class="row">
+        <dt class="col-sm-3">ID</dt>
+        <dd class="col-sm-9">@Model.Chamado.Id</dd>
+
+        <dt class="col-sm-3">Máquina</dt>
+        <dd class="col-sm-9">@Model.Chamado.Maquina.Nome</dd>
+
+        <dt class="col-sm-3">Setor</dt>
+        <dd class="col-sm-9">@Model.Chamado.Maquina.Setor</dd>
+
+        <dt class="col-sm-3">Tipo</dt>
+        <dd class="col-sm-9">@Model.Chamado.Tipo</dd>
+
+        <dt class="col-sm-3">Prioridade</dt>
+        <dd class="col-sm-9">@Model.Chamado.Prioridade</dd>
+
+        <dt class="col-sm-3">Status</dt>
+        <dd class="col-sm-9">@Model.Chamado.Status</dd>
+
+        <dt class="col-sm-3">Data de Abertura</dt>
+        <dd class="col-sm-9">@Model.Chamado.DataAbertura.ToString("dd/MM/yyyy HH:mm")</dd>
+
+        <dt class="col-sm-3">Solicitante</dt>
+        <dd class="col-sm-9">@Model.Chamado.UsuarioSolicitante</dd>
+
+        <dt class="col-sm-3">Descrição</dt>
+        <dd class="col-sm-9">@Model.Chamado.Descricao</dd>
+    </dl>
+</div>
+
+<a asp-page="Index" class="btn btn-secondary mt-3">Voltar</a>

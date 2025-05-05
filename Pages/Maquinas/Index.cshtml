@@ -1,0 +1,35 @@
+@page
+@using ManutencaoIndustrial.Models
+@model ManutencaoIndustrial.Pages.Maquinas.IndexModel
+@* @attribute [Authorize(Roles = "Admin")] *@
+@{
+    ViewData["Title"] = "Máquinas";
+}
+
+<h2>Máquinas</h2>
+<a asp-page="Create" class="btn btn-primary mb-3">Nova Máquina</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Setor</th>
+            <th>Código Interno</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var m in Model.Maquinas)
+{
+        <tr>
+            <td>@m.Nome</td>
+            <td>@m.Setor</td>
+            <td>@m.CodigoInterno</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@m.Id" class="btn btn-sm btn-warning">Editar</a>
+                <a asp-page="Delete" asp-route-id="@m.Id" class="btn btn-sm btn-danger">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

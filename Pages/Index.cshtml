@@ -1,0 +1,62 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container">
+    <h1 class="mb-4">Sistema de Manutenção Industrial</h1>
+
+    <div class="row">
+        <!-- Card de Chamados -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Chamados</h5>
+                    <p class="card-text">Gerenciar chamados de manutenção</p>
+                    <div class="d-grid gap-2">
+                        <a asp-page="/Chamados/Index" class="btn btn-primary">Ver Chamados</a>
+                        @if (!User.IsInRole("Admin"))
+                        {
+                            <a asp-page="/Chamados/Create" class="btn btn-success">Novo Chamado</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card de Máquinas (apenas para Admin) -->
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Máquinas</h5>
+                        <p class="card-text">Gerenciar cadastro de máquinas</p>
+                        <div class="d-grid gap-2">
+                            <a asp-page="/Maquinas/Index" class="btn btn-primary">Ver Máquinas</a>
+                            <a asp-page="/Maquinas/Create" class="btn btn-success">Nova Máquina</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Relatórios</h5>
+                        <p class="card-text">Exportar dados do sistema</p>
+                        <a asp-page="/Chamados/Exportar" class="btn btn-info">
+                            <i class="bi bi-file-earmark-excel"></i> Exportar Chamados
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

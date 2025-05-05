@@ -1,0 +1,21 @@
+@page
+@model ManutencaoIndustrial.Pages.Maquinas.CreateModel
+@* @attribute [Authorize(Roles = "Admin")] *@
+<h2>Nova Máquina</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label>Nome:</label>
+        <input asp-for="Maquina.Nome" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Setor:</label>
+        <input asp-for="Maquina.Setor" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Código Interno:</label>
+        <input asp-for="Maquina.CodigoInterno" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

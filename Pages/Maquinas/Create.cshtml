@@ -1,0 +1,31 @@
+@page
+@model ManutencaoIndustrial.Pages.Maquinas.CreateModel
+@{
+    ViewData["Title"] = "Nova Máquina";
+}
+
+<h2>Nova Máquina</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Maquina.Nome" class="form-label">Nome:</label>
+        <input asp-for="Maquina.Nome" class="form-control" />
+        <span asp-validation-for="Maquina.Nome" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Maquina.Setor" class="form-label">Setor:</label>
+        <input asp-for="Maquina.Setor" class="form-control" />
+        <span asp-validation-for="Maquina.Setor" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Maquina.CodigoInterno" class="form-label">Código Interno:</label>
+        <input asp-for="Maquina.CodigoInterno" class="form-control" />
+        <span asp-validation-for="Maquina.CodigoInterno" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

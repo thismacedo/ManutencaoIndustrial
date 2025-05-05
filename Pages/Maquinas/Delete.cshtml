@@ -1,0 +1,14 @@
+@page "{id:int}"
+@model ManutencaoIndustrial.Pages.Maquinas.DeleteModel
+@* @attribute [Authorize(Roles = "Admin")] *@
+<h2>Confirmar Exclusão</h2>
+
+<div class="alert alert-warning">
+    <p>Tem certeza que deseja excluir a máquina <strong>@Model.Maquina.Nome</strong>?</p>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Maquina.Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

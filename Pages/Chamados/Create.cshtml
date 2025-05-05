@@ -1,0 +1,64 @@
+@page
+@model ManutencaoIndustrial.Pages.Chamados.CreateModel
+@{
+    ViewData["Title"] = "Novo Chamado";
+}
+
+<h2>Novo Chamado</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Chamado.Status" />
+            <input type="hidden" asp-for="Chamado.DataAbertura" />
+            <input type="hidden" asp-for="Chamado.UsuarioSolicitante" />
+
+            <div class="mb-3">
+                <label asp-for="Chamado.MaquinaId" class="form-label">Máquina</label>
+                <select asp-for="Chamado.MaquinaId" asp-items="Model.Maquinas" class="form-select">
+                    <option value="">Selecione uma máquina</option>
+                </select>
+                <span asp-validation-for="Chamado.MaquinaId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Chamado.Tipo" class="form-label">Tipo de Manutenção</label>
+                <select asp-for="Chamado.Tipo" class="form-select">
+                    <option value="">Selecione</option>
+                    <option value="Corretiva">Corretiva</option>
+                    <option value="Preventiva">Preventiva</option>
+                </select>
+                <span asp-validation-for="Chamado.Tipo" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Chamado.Prioridade" class="form-label">Prioridade</label>
+                <select asp-for="Chamado.Prioridade" class="form-select">
+                    <option value="">Selecione</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Média">Média</option>
+                    <option value="Baixa">Baixa</option>
+                </select>
+                <span asp-validation-for="Chamado.Prioridade" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Chamado.Descricao" class="form-label">Descrição</label>
+                <textarea asp-for="Chamado.Descricao" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Chamado.Descricao" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

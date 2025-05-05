@@ -1,0 +1,22 @@
+@page "{id:int}"
+@model ManutencaoIndustrial.Pages.Maquinas.EditModel
+@* @attribute [Authorize(Roles = "Admin")] *@
+<h2>Editar Máquina</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Maquina.Id" />
+    <div class="mb-3">
+        <label>Nome:</label>
+        <input asp-for="Maquina.Nome" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Setor:</label>
+        <input asp-for="Maquina.Setor" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Código Interno:</label>
+        <input asp-for="Maquina.CodigoInterno" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,43 @@
+@page
+@model ManutencaoIndustrial.Pages.Chamados.ExportarModel
+@{
+    ViewData["Title"] = "Exportar Chamados";
+}
+
+<h2>Exportar Chamados</h2>
+
+<form method="get">
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <label class="form-label">Status</label>
+            <select name="status" class="form-select">
+                <option value="">Todos</option>
+                <option value="Pendente">Pendente</option>
+                <option value="Em Atendimento">Em Atendimento</option>
+                <option value="Concluído">Concluído</option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label">Setor</label>
+            <input type="text" name="setor" class="form-control" placeholder="Ex: Usinagem">
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label">Data Início</label>
+            <input type="date" name="dataInicio" class="form-control">
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label">Data Fim</label>
+            <input type="date" name="dataFim" class="form-control">
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-file-earmark-excel"></i> Exportar para Excel
+            </button>
+            <a asp-page="Index" class="btn btn-secondary">Voltar</a>
+        </div>
+    </div>
+</form>
